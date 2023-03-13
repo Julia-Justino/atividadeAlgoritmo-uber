@@ -1,7 +1,6 @@
-# atividadeAlgoritmo
-atividade semanal de algoritmo 03/12/2023
+ # Atividade semanal de algoritmo 03/12/2023
 
-## 
+
 Faça o teste de mesa e crie um programa em HTML/JS que simule um sistema de aplicativo de carona (Uber, 99 etc): 
 
  a) O usuário informa a distância, em km, da corrida.  
