@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+</head>
+<style>
+    
+.botao{
+    color: #252525;
+    background-color: rgba(223, 247, 239, 0.767);
+    border-radius: 9px;
+    padding: 5px 10px 5px 10px;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-left: 2px;
+}
+
+.botao:hover{
+    font-size: 14px;
+    background-color: rgb(253, 255, 241);
+    padding: 10px 15px 10px 15px;
+    border-radius: 20px;
+    transition: 1s;
+}   
+.pri{
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 500px;
+    margin: auto;
+    box-shadow: 3px 3px 10px rgba(0,0,0,.363);
+}
+
+
+body{
+    background: #468eec;
+    font: normal 12pt Arial;
+    text-align: center;
+}
+header{
+    color: #fff;
+    text-align: center;
+}
+input{
+    border-radius: 25px;
+    width: 15vw;
+    height: 3vh;
+}
+.botaoInfo{
+    border-radius: 100%;
+    background-color: #d2f7d7d0;
+}
+
+</style>
+<body> 
+    <header><h1>Calcular passagem</h1></header>
+    <section class="pri">
+        <div class="form">
+            <span>Distância</span>
+            <input type="text" id="inp_distancia" placeholder="Digite a distância:"><span>KM</span><br>
+            <span>Volume de chamadas</span>
+            <input type="text" id="inp_volume" placeholder="Número de 1 - 100"><br>
+           
+            <button onclick="fun_cal()" class="botao">Calcular custo da viagem</button>
+        </div>
+        <div id="msg">
+
+        </div>
+    </section>
+</body>
+</html>
+<script>
+ 
+
+    function fun_cal() {
+        if (Number(inp_volume.value) < 0 ||Number(inp_volume.value)> 100|| Number(inp_distancia.value) < 0) {
+            alert("Número inválido");
+            inp_distancia.value = "";
+            inp_volume.value ="";
+            msg.innerHTML = " ";
+        }else{
+            let distancia =  Number(inp_distancia.value) + 4;
+            console.log(`Km é: ${distancia}`);
+            let valor = (1.50 * distancia)+ 7.00;
+            console.log(`Valor é: ${valor}`) 
+            let valorMotorista = valor - 0.02;
+            console.log(`valor do motorista é: ${valorMotorista}`);
+            if (Number(inp_volume.value)<=20) {
+                let valor20 = valor - 0.05;
+                console.log(`O valor é: ${valor},  valor com desconto é: ${valor20} `);
+                msg.innerHTML += `O valor final da corrida para o cliente será de R$: ${valor20} <br><br>`;
+                msg.innerHTML +=`  O valor descontado do motorista será 2%, logo ele receberá um valor líquido de ${valorMotorista} `;
+            }
+            if (Number(inp_volume.value)>20) {
+                msg.innerHTML = `O valor final da corrida para o cliente será de R$: ${valor}<br><br> `;
+                msg.innerHTML +=`  O valor descontado do motorista será 2%, logo ele receberá um valor líquido de ${valorMotorista} `;
+            }
+            if (Number(inp_volume.value)>= 80) {
+                let valor80 = valor + 0.5;
+                console.log(`O valor é: ${valor}, valor com o acréscimo é: ${valor80}`);
+                msg.innerHTML = `O valor final da corrida para o cliente será de R$: ${valor80}<br><br> `;
+                msg.innerHTML +=`  O valor descontado do motorista será 2%, logo ele receberá um valor líquido de ${valorMotorista} `;
+            }
+        }
+       
+     }
+</script>
